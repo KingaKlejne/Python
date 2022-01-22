@@ -6,3 +6,4 @@
 4. File with exercises from statistics (pl)
 5. Pandas Basics
 6. Licza zespolona - function with complex number (pl)
+7. Currency Exchange apps
