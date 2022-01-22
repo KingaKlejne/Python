@@ -7,3 +7,4 @@
 5. Pandas Basics
 6. Licza zespolona - function with complex number (pl)
 7. Currency Exchange apps
+8. Netflix cost analysis based on data from kaggle
