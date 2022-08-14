@@ -88,9 +88,9 @@ def get_ingredients(ingredients, user_input, drink, total, rest):
         if key != 'money':
             if user_input == 'espresso':
                 if key != 'milk':
-                    ingredients[key] = ingredients[key] - drink['ingredients'][key]
+                    ingredients[key] -= drink['ingredients'][key]
             else:
-                ingredients[key] = ingredients[key] - drink['ingredients'][key]
+                ingredients[key] -= drink['ingredients'][key]
 
     ingredients["money"] += round(total - rest, 2)
     print(f"Here is ${change} in change.")
