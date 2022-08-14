@@ -9,3 +9,4 @@
 7. Currency Exchange apps
 8. Netflix cost analysis based on data from kaggle
 9. Game Blackjack
+10. Coffe Machine project
