@@ -27,6 +27,7 @@ MENU = {
 
 
 # TODO 1: Function for sum of total amount
+
 def count_total_amount():
     print("Please insert coins.")
     quarters = int(input("how many quarters?: "))
@@ -53,22 +54,25 @@ def check_ingredients(ingredients, user_input, drink, check):
     for key in drink['ingredients']:
         if ingredients[key] < drink['ingredients'][key]:
             print(f"Sorry there is not enough {key}.")
-            check = 0
-            return check
+            return False
+            break
+        else:
+            return True
 
 
 # TODO 3: Function to check if there is enough money
 def check_money(total, drink):
     if total < drink['cost']:
         print("Sorry that's not enough money. Money refunded.")
-        rest = 0
-        return rest
+        return False
     else:
-        rest = round(total - drink['cost'], 2)
-        return rest
+        global change
+        change += round(total - drink['cost'], 2)
+        return True
 
 
 # TODO 4: Function to get ingridents from the machine
+
 def get_ingredients(ingredients, user_input, drink, total, rest):
     for key in drink['ingredients']:
         ingredients[key] -= drink['ingredients'][key]
@@ -80,39 +84,32 @@ def get_ingredients(ingredients, user_input, drink, total, rest):
 
 
 # TODO 5: Function to show the report
+
 def report():
     print(f" Water: {supplies['water']}ml \n "
           f"Milk: {supplies['milk']}ml \n "
           f"Coffee: {supplies['coffee']}g \n "
           f"Money: ${supplies['money']} ")
 
+
 # TODO 6: Start Game
 game = True
 supplies = {"water": 300, "milk": 200, "coffee": 100, "money": 0}
+change = 0
+while game == True:
 
-while game:
-
-    # Phase 1
     answer = input("\tWhat would you like? (espresso/latte/cappuccino): ")
     if answer != 'report' and answer in ('espresso', 'latte', 'cappuccino'):
         coffee = MENU[answer]
-        stop_point = 100
-
         # Check if there are enough supplies
-        stop_point = check_ingredients(supplies, answer, coffee, breakpoint)
-
-        # Get money
-        if stop_point != 0:
+        if check_ingredients(supplies, answer, coffee, breakpoint):
+            # Get money
             total_sum = count_total_amount()
-
             # Check if there is enough money
-            change = check_money(total_sum, coffee)
-
-            if change != 0:
+            if check_money(total_sum, coffee):
                 # Get supplies and give coffee
                 supplies = get_ingredients(supplies, answer, coffee, total_sum, change)
-
-        # Finish
+        # Stop the machine if not enough supplies
         else:
             game = False
 
@@ -122,4 +119,5 @@ while game:
 
     # Incorrect answer
     else:
-        print("Wrong item selected. Please try again")
+        print("Wrong item selected. Plase try again")
+        # game = False
