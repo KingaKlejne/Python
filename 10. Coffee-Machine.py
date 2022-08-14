@@ -81,7 +81,7 @@ def check_money(total, drink):
         return rest
 
 
-# TODO 4: Function to get ingridents from the machine
+# TODO 4: Function to get ingredients from the machine
 
 def get_ingredients(ingredients, user_input, drink, total, rest):
     for key in ingredients:
