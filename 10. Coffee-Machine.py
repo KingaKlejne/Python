@@ -51,23 +51,12 @@ def count_total_amount():
 
 # TODO 2: Function to check if there is enough ingredients
 def check_ingredients(ingredients, user_input, drink, check):
-    for key in ingredients:
-        if key != 'money':
-            if user_input == 'espresso':
-                if key != 'milk':
-                    if ingredients[key] - drink['ingredients'][key] < 0:
-                        print(f"Sorry there is not enough {key}.")
-                        check = 0
-                        return check
-                        break
-
-
-            else:
-                if ingredients[key] - drink['ingredients'][key] < 0:
-                    print(f"Sorry there is not enough {key}.")
-                    check = 0
-                    return check
-                    break
+    for key in drink['ingredients']:
+        if ingredients[key] < drink['ingredients'][key]:
+            print(f"Sorry there is not enough {key}.")
+            check = 0
+            return check
+            break
 
 
 # TODO 3: Function to check if there is enough money
@@ -81,16 +70,11 @@ def check_money(total, drink):
         return rest
 
 
-# TODO 4: Function to get ingredients from the machine
+# TODO 4: Function to get ingridents from the machine
 
 def get_ingredients(ingredients, user_input, drink, total, rest):
-    for key in ingredients:
-        if key != 'money':
-            if user_input == 'espresso':
-                if key != 'milk':
-                    ingredients[key] -= drink['ingredients'][key]
-            else:
-                ingredients[key] -= drink['ingredients'][key]
+    for key in drink['ingredients']:
+        ingredients[key] -= drink['ingredients'][key]
 
     ingredients["money"] += round(total - rest, 2)
     print(f"Here is ${change} in change.")
@@ -105,7 +89,6 @@ def report():
           f"Milk: {supplies['milk']}ml \n "
           f"Coffee: {supplies['coffee']}g \n "
           f"Money: ${supplies['money']} ")
-
 
 # TODO 6: Start Game
 game = True
