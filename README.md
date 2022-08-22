@@ -10,3 +10,4 @@
 8. Netflix cost analysis based on data from kaggle
 9. Game Blackjack
 10. Coffe Machine project
+11. Snake game
