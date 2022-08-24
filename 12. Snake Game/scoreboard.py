@@ -4,7 +4,6 @@ FONT = ('Courier', 20, 'normal')
 
 with open("data.txt") as file:
     HIGH_SCORE = file.read()
-    print(HIGH_SCORE)
 
 
 class Scoreboard(Turtle):
