@@ -18,3 +18,4 @@
 16. Pomodoro App
 17. Password Generator App
 18. Flashcard App
+19. Stock News: App sending emails with latest news if the difference of daily stock price for Tesla is more than 1%
