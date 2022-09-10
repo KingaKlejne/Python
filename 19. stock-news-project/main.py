@@ -31,7 +31,7 @@ start_date = end_date - timedelta(days=1)
 start_price = float(stock_data[str(start_date)]["4. close"])
 stock_difference = round((start_price - end_price) / start_price * 100)
 
-if stock_difference > 1 or stock_difference < -1:
+if abs(stock_difference) > 1:
     news_parameters = {
         "q": COMPANY_NAME,
         "from": start_date,
