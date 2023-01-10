@@ -15,7 +15,10 @@
 13. Ping pong game
 14. Turtle crossing cars game
 15. US States Map Quiz
-16. Pomodoro App
-17. Password Generator App
-18. Flashcard App
+16. Pomodoro App using Tkinter GUI
+17. Password Generator App using Tkinter GUI
+18. Flashcard App using Tkinter GUI
 19. Stock News: App sending emails with latest news if the difference of daily stock price for Tesla is more than 1%
+20. Zillow Renatal Search using BeautifulSoup and Selenium
+21. Higher Lower game using Flask
+22. Blog Template in Flask
