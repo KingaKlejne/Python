@@ -24,3 +24,4 @@
 22.	Blog Template in Flask
 23. Flask app to log in
 24. Flask app to collect ratings of coffee shops
+25. Library app in Flask to collect ratings of books
